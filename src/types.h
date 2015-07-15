@@ -4,6 +4,8 @@
 typedef unsigned char  byte;
 typedef const    char  cchar;
 
+typedef unsigned int   uint;
+
 
 
 template <byte s = 4, class T = float>

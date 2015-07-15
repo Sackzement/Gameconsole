@@ -23,7 +23,7 @@ const  char*      GAME_NAME      = "Jump N Pong" ;
 const   vec<2,int>      resolution      (800,600);
 const Uint32      windowFlags    = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL ;
 const Uint32      rendererFlags  = SDL_RENDERER_ACCELERATED ;
-const char * 	  FONT_FILE      = "16_true_type_fonts/lazy.ttf" ;
+const char * 	  FONT_FILE      = "res/lazy.ttf" ;
 
 map<cchar*,SDL_Texture*>   textures  = map<cchar*,SDL_Texture*> () ;
 const char *     PNG_FILE_ULULU  = "res/ululu.png";

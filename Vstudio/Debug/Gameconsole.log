@@ -1,0 +1,43 @@
+﻿Build started 16.07.2015 00:29:40.
+     1>Project "c:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" on node 2 (Rebuild target(s)).
+     1>PreBuildEvent:
+         XCOPY "c:\Wolke\Development\Projects\Gameconsole\Vstudio\\..\res\*" "c:\Wolke\Development\Projects\Gameconsole\Vstudio\\res\*" /D /I
+         XCOPY "c:\Wolke\Development\Projects\Gameconsole\Vstudio\\..\res\*" "C:\Wolke\Development\Projects\Gameconsole\Vstudio\Debug\res\" /D /I
+         :VCEnd
+         C:\Wolke\Development\Projects\Gameconsole\Vstudio\\..\res\lazy.ttf
+         C:\Wolke\Development\Projects\Gameconsole\Vstudio\\..\res\ululu.png
+         2 File(s) copied
+         0 File(s) copied
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp
+         main.cpp
+     1>c:\wolke\development\projects\gameconsole\src\sprite.h(40): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\wolke\development\projects\gameconsole\src\sprite.h(41): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\wolke\development\projects\gameconsole\main.cpp(280): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\wolke\development\projects\gameconsole\main.cpp(329): warning C4800: 'Uint32' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\wolke\development\projects\gameconsole\main.cpp(478): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\wolke\development\projects\gameconsole\src\types.h(14): warning C4351: new behavior: elements of array 'vec<2,float>::arr' will be default initialized
+                 c:\wolke\development\projects\gameconsole\src\types.h(16) : while compiling class template member function 'vec<2,float>::vec(void)'
+                 c:\wolke\development\projects\gameconsole\src\sprite.h(29) : see reference to function template instantiation 'vec<2,float>::vec(void)' being compiled
+                 c:\wolke\development\projects\gameconsole\src\sprite.h(27) : see reference to class template instantiation 'vec<2,float>' being compiled
+     1>c:\wolke\development\projects\gameconsole\src\types.h(14): warning C4351: new behavior: elements of array 'vec<2,int>::arr' will be default initialized
+                 c:\wolke\development\projects\gameconsole\src\types.h(22) : while compiling class template member function 'vec<2,int>::vec(T,T,T,T)'
+                 with
+                 [
+                     T=int
+                 ]
+                 c:\wolke\development\projects\gameconsole\main.cpp(23) : see reference to function template instantiation 'vec<2,int>::vec(T,T,T,T)' being compiled
+                 with
+                 [
+                     T=int
+                 ]
+                 c:\wolke\development\projects\gameconsole\main.cpp(23) : see reference to class template instantiation 'vec<2,int>' being compiled
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Wolke\Development\Projects\Gameconsole\Vstudio\Debug\Gameconsole.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Wolke\Development\Projects\Gameconsole\Vstudio\Debug\Gameconsole.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Wolke\Development\Projects\Gameconsole\Vstudio\Debug\Gameconsole.lib" /MACHINE:X86 Debug\main.obj
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         Gameconsole.vcxproj -> C:\Wolke\Development\Projects\Gameconsole\Vstudio\Debug\Gameconsole.exe
+     1>Done Building Project "c:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.00
