@@ -332,7 +332,7 @@ void close()
 	SDL_Quit();
 }
 
-int main( int argc, char* args[] )
+int mainFunc( int argc, char* args[] )
 {
 	//Start up SDL and create window
 	if( !init() )

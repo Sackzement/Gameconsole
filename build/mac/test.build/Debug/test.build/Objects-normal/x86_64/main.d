@@ -1,4 +1,5 @@
-dependencies: /Users/piit/Wolke/Development/Projects/Gameconsole/main.cpp \
+dependencies: \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src_test/main.cpp \
   /Library/Frameworks/SDL2.framework/Headers/SDL.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
@@ -42,11 +43,4 @@ dependencies: /Users/piit/Wolke/Development/Projects/Gameconsole/main.cpp \
   /Library/Frameworks/SDL2.framework/Headers/SDL_render.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_system.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_timer.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/Sprite.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/types.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/Text.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/game_vars.h \
-  /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
-  /Library/Frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/GameObject.h
+  /Library/Frameworks/SDL2.framework/Headers/SDL_version.h

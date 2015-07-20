@@ -1,28 +1,33 @@
-dependencies: /Users/piit/Wolke/Development/Projects/Gameconsole/main.cpp \
-  /Library/Frameworks/SDL2.framework/Headers/SDL.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
+dependencies: \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/GameObject.cpp \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/GameObject.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_config.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_platform.h \
   /Library/Frameworks/SDL2.framework/Headers/begin_code.h \
   /Library/Frameworks/SDL2.framework/Headers/close_code.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_config_macosx.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_assert.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_atomic.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_audio.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_error.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_endian.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_mutex.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_thread.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_rwops.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_clipboard.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_cpuinfo.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_events.h \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/game_vars.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_video.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_pixels.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_rect.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_error.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_rwops.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_surface.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_blendmode.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_render.h \
+  /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_assert.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_atomic.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_audio.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_endian.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_mutex.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_thread.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_clipboard.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_cpuinfo.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_events.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_keyboard.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_keycode.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_scancode.h \
@@ -39,14 +44,8 @@ dependencies: /Users/piit/Wolke/Development/Projects/Gameconsole/main.cpp \
   /Library/Frameworks/SDL2.framework/Headers/SDL_log.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_messagebox.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_power.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_render.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_system.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_timer.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/Sprite.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/types.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/Text.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/game_vars.h \
-  /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
   /Library/Frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/GameObject.h
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/types.h

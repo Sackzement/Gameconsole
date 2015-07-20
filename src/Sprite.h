@@ -9,13 +9,11 @@ class Sprite  {
 public:
     SDL_Texture*  texture;
     
-    Sprite(SDL_Texture* tex)  {
+    Sprite(SDL_Texture* tex = NULL)  {
         
         texture = tex;
         
-        SDL_QueryTexture( texture, NULL, NULL, &defTexSize.w, &defTexSize.h );
-        
-        srcRect = dstRect = defTexSize;
+        updateValues();
     }
     
     SDL_Rect      srcRect  = {} ;
@@ -24,6 +22,13 @@ public:
     SDL_Point*    center   = NULL;
     SDL_RendererFlip flip  = SDL_FLIP_NONE;
     
+    void updateValues()  {
+        
+        vec<2> oldSize = getSize();
+        SDL_QueryTexture( texture, NULL, NULL, &defTexSize.w, &defTexSize.h );
+        srcRect = defTexSize;
+        setSize(oldSize.x, oldSize.y);
+    }
     vec<2,float> getSize()  {
         
         vec<2,float> v;
@@ -40,7 +45,9 @@ public:
         dstRect.w = float(defTexSize.w) * w ;
         dstRect.h = float(defTexSize.h) * h ;
     }
-private:
+    
+    virtual ~Sprite() {}
+protected:
     SDL_Rect defTexSize = {} ;
     //vec<> pos;
     //vec<2> size = vec<2> (1.f) ;

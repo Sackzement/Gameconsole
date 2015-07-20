@@ -41,9 +41,9 @@
 		A707DD971B5564A500693172 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../main.cpp; sourceTree = "<group>"; };
 		A707DD981B5564A500693172 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = ../res; sourceTree = "<group>"; };
 		A707DD991B5564A500693172 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../src; sourceTree = "<group>"; };
-		A707DD9B1B55673800693172 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
-		A707DD9C1B55673800693172 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
-		A707DD9D1B55673800693172 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		A707DD9B1B55673800693172 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = /Library/Frameworks/SDL2_image.framework; sourceTree = "<absolute>"; };
+		A707DD9C1B55673800693172 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = /Library/Frameworks/SDL2_ttf.framework; sourceTree = "<absolute>"; };
+		A707DD9D1B55673800693172 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
 		A71B10231B55626B003432F4 /* Gameconsole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Gameconsole; sourceTree = BUILT_PRODUCTS_DIR; };
 		A785E4D81B55FA230084D62E /* test.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = test.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,12 +65,10 @@
 		A71B101A1B55626B003432F4 = {
 			isa = PBXGroup;
 			children = (
-				A707DD9B1B55673800693172 /* SDL2_image.framework */,
-				A707DD9C1B55673800693172 /* SDL2_ttf.framework */,
-				A707DD9D1B55673800693172 /* SDL2.framework */,
+				A79FD6311B595C3700609548 /* libs */,
+				A707DD991B5564A500693172 /* src */,
 				A707DD971B5564A500693172 /* main.cpp */,
 				A707DD981B5564A500693172 /* res */,
-				A707DD991B5564A500693172 /* src */,
 				A71B10241B55626B003432F4 /* Products */,
 				A785E4D81B55FA230084D62E /* test.xcodeproj */,
 			);
@@ -90,6 +88,16 @@
 				A785E4DD1B55FA230084D62E /* test */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A79FD6311B595C3700609548 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				A707DD9D1B55673800693172 /* SDL2.framework */,
+				A707DD9B1B55673800693172 /* SDL2_image.framework */,
+				A707DD9C1B55673800693172 /* SDL2_ttf.framework */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,50 +1,34 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <map>
 #include <stdio.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_render.h>
-#include <SDL2_ttf/SDL_ttf.h>
-#include <SDL2_image/SDL_image.h>
 #include <SDL2/SDL_events.h>
 using namespace std;
 
 #include "src/Sprite.h"
 #include "src/types.h"
+#include "src/Text.h"
+
+#include "src/game_vars.h"
 
 
 
 
-//---------------------------------------
-// variables
-const Uint32	  sdl_img_flags  = IMG_INIT_PNG ;
-const  char*      GAME_NAME      = "Jump N Pong" ;
-const   vec<2,int>      resolution      (800,600);
-const Uint32      windowFlags    = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL ;
-const Uint32      rendererFlags  = SDL_RENDERER_ACCELERATED ;
-const char * 	  FONT_FILE      = "res/lazy.ttf" ;
-
-map<cchar*,SDL_Texture*>   textures  = map<cchar*,SDL_Texture*> () ;
-const char *     PNG_FILE_ULULU  = "res/ululu.png";
-vector<Sprite>            sprites = vector<Sprite> () ;
 
 
-SDL_Window*      window    = nullptr ;
-SDL_Renderer*    renderer  = nullptr ;
-TTF_Font*        font      = nullptr ;
 
-bool    isConsoleOpen = false ;
 
-bool    quit           = false ;
-Uint32  gameTime       = 0 ;
-Uint32  delayTime      = 0 ;
-double  delta          = 0. ;
-const Uint32  fps            = 30 ;
-Uint32  msPerFrame     = 1000 / fps ;
+bool    isConsoleOpen = false;
 
-vector<SDL_Keycode>  lastKeys  = vector<SDL_Keycode> () ;
-uint 				 keyToHold = 100 ;
+Uint32  gameTime       = 0;
+Uint32  delayTime      = 0;
+double  delta          = 0.;
+const Uint32  fps      = 30;
+Uint32  msPerFrame     = 1000 / fps;
+
+vector<SDL_Keycode>  lastKeys  = vector<SDL_Keycode> ();
+uint 				 keyToHold = 100;
 
 
 
@@ -52,18 +36,11 @@ uint 				 keyToHold = 100 ;
 //---------------------------------------
 // functions
 
-byte      initLibs      ();
 
-byte      openWin      ();
-
-byte loadData();
-void createSpritesFromAllTextures();
+//void createSpritesFromAllTextures();
 
 void calcDelta() ;
-void input() ;
-void update() ;
 void delay() ;
-void render() ;
 
 void inputKeyDown (SDL_KeyboardEvent kb_ev) ;
 void printConsoleCmds() ;
@@ -71,29 +48,55 @@ void setFullscreen(bool val);
 
 
 
-
+void ululu()  {
+    
+    Group* g = new Group();
+    for (int i=0; i<800; ++i)  {
+        
+        Point* p = new Point();
+        p->x = i;
+        p->y = 100 + sin(i) * 20;
+        p->color = 0xffffffff;
+        
+        g->childObjects.push_back(p);
+    }
+    gameObjects.push_back(g);
+    
+    Rect* r = new Rect();
+    r->color.r = 255;
+    r->rect.y = 500;
+    r->rect.w = 40;
+    r->rect.h = 40;
+    RectFill* rf = new RectFill();
+    rf->color.g = 255;
+    rf->rect.y = 400;
+    rf->rect.w = 40;
+    rf->rect.h = 40;
+    gameObjects.push_back(r);
+    gameObjects.push_back(rf);
+}
 //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
-
-
+#include <math.h>
 int main(int argc, char** argv)
 {
     if ( initLibs() )    {
         
-        if ( openWin() )    {
+        if ( createWindowAndRenderer() )  {
             
-            loadData();
-            createSpritesFromAllTextures();
+            loadResources();
             gameTime = SDL_GetTicks() ;
             
+            ululu();
+        
             // mainloop
-            while (quit == false )    {
+            while (quit == false )  {
                 
-                calcDelta() ;
-                input() ;
-                update() ;
-                delay() ;
-                render() ;
+                calcDelta();
+                input();
+                update();
+                delay();
+                render();
             }
         }
     }
@@ -105,86 +108,6 @@ int main(int argc, char** argv)
 //-----------------------------------------------------------------------------------
 
 
-
-byte    initLibs  ()    {
-    
-    // INIT SDL
-    if ( SDL_Init(SDL_INIT_EVERYTHING) != 0 )  {
-        
-        cout <<SDL_GetError() << endl ;
-        return 0;
-    }
-    
-    byte failNum = 1;
-    
-    // INIT other libs
-    if( TTF_Init() == -1 )  {
-        
-        cout << "SDL_ttf could not initialize! SDL_ttf Error: %s\n" << TTF_GetError() << endl ;
-        failNum |= 2 ;
-    }
-    if( IMG_Init(sdl_img_flags) == 0 )  {
-        
-        cout << "SDL_img could not initialize! SDL_img Error: %s\n" << IMG_GetError() << endl ;
-        failNum |= 4 ;
-    }
-    
-    return failNum ;
-}
-byte    loadData  ()    {
-    
-    byte succNum = 0 ;
-    
-    if( ( font = TTF_OpenFont( FONT_FILE, 28 ) )  == NULL )
-        printf( "Failed to load font! SDL_ttf Error: %s\n", TTF_GetError() );
-    else  succNum |= 1 ;
-    
-    // load IMG files  into Surfaces*
-    
-    SDL_Texture* tex = IMG_LoadTexture(renderer, PNG_FILE_ULULU) ;
-    if( tex == NULL )
-        printf( "Failed to load Image \"%s\"  Error:  %s\n", PNG_FILE_ULULU, TTF_GetError() );
-    else
-    {
-        textures[PNG_FILE_ULULU]  = tex;
-        succNum |= 2 ;
-    }
-    
-    
-    return succNum;
-}
-void createSpritesFromAllTextures()  {
-    
-    map<cchar*,SDL_Texture*>::iterator it = textures.begin();
-    for (; it != textures.end() ;++it)  {
-        
-        Sprite sp(it->second);
-        
-        sprites.push_back(sp);
-    }
-}
-byte    openWin   ()    {
-    
-    window   = SDL_CreateWindow( GAME_NAME, 100, 100, resolution.w, resolution.h, windowFlags ) ;
-    
-    if ( window == nullptr )    {
-        cout << SDL_GetError() << endl ;
-        return 0 ;
-    }
-    
-    byte succNum = 1;
-    
-    renderer = SDL_CreateRenderer(window, -1, rendererFlags ) ;
-    if ( renderer == nullptr )    {
-        cout << SDL_GetError() << endl ;
-        succNum |= 2 ;
-    }
-    else
-        SDL_SetRenderDrawColor( renderer, 0x00, 0x00, 0x00, 0x00 ) ;
-    
-    
-    return succNum ;
-}
 
 void    calcDelta()    {
     
@@ -206,23 +129,6 @@ void    calcDelta()    {
         mytime = 0 ;
     }*/
 }
-void    input    ()    {
-    SDL_Event ev ;
-    
-    while ( SDL_PollEvent(&ev) != 0 ) {
-        
-        switch (ev.type) {
-            
-            case SDL_QUIT:
-                quit = true ;
-                break;
-            
-            case SDL_KEYDOWN:
-                inputKeyDown(ev.key) ;
-                break;
-        }
-    }
-}
 void    inputKeyDown (SDL_KeyboardEvent kb_ev)    {
     
     SDL_Keycode key = kb_ev.keysym.sym ;
@@ -236,7 +142,7 @@ void    inputKeyDown (SDL_KeyboardEvent kb_ev)    {
                 isConsoleOpen = ! isConsoleOpen ;
                 cout << "Console " << (isConsoleOpen? "opened":"closed") << endl ;
                 break;
-            case SDLK_UP:  {
+            /*case SDLK_UP:  {
                 vector<Sprite>::iterator it = sprites.begin() ;
                 for(; it!=sprites.end() ;++it)
                     it->setSize( it->getSize().w +1.f, it->getSize().w +1.f );
@@ -245,7 +151,7 @@ void    inputKeyDown (SDL_KeyboardEvent kb_ev)    {
                 vector<Sprite>::iterator it = sprites.begin() ;
                 for(; it!=sprites.end() ;++it)
                     it->setSize( it->getSize().w -1.f, it->getSize().w -1.f );
-            }break;
+            }break;*/
         }
     
     if ( isConsoleOpen )    {
@@ -339,9 +245,6 @@ void    setFullscreen(bool val)    {
         cout << "Fullscenn  " << (val? "on":"off") << endl ;
     }
 }
-void    update   ()    {
-    
-}
 void    delay    ()    {
     
     Uint32 currTime  = SDL_GetTicks() ;
@@ -354,16 +257,8 @@ void    delay    ()    {
     
     delayTime  = SDL_GetTicks() ;
 }
-void    render   ()    {
-    
-    SDL_RenderClear(renderer);
-    
-    //renderAllSprites
-    vector<Sprite>::iterator it = sprites.begin();
-    for ( ; it != sprites.end() ; ++it )
-        SDL_RenderCopyEx(renderer, it->texture, &it->srcRect, &it->dstRect, it->angle, it->center, it->flip ) ;
-    SDL_RenderPresent(renderer) ;
-}
+
+
 
 
 
@@ -411,7 +306,7 @@ void Console::open()    {
 void Console::input(SDL_KeyboardEvent kb_ev)    {
     
     if ( kb_ev.repeat == 0 )    {
-        
+        // SPECIAL KEYS
         switch (kb_ev.keysym.sym)    {
             
             case KEY_CONSOLE_TOGGLE:
@@ -423,6 +318,7 @@ void Console::input(SDL_KeyboardEvent kb_ev)    {
         }
     }
     
+    // NORMAL KEYS
     if ( m_open )    {
         
         SDL_Keycode key  = kb_ev.keysym.sym;

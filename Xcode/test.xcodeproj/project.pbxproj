@@ -11,6 +11,7 @@
 		A785E4E41B55FAE50084D62E /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A785E4E11B55FAE50084D62E /* SDL2_ttf.framework */; };
 		A785E4E51B55FAE50084D62E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A785E4E21B55FAE50084D62E /* SDL2.framework */; };
 		A785E4ED1B55FCC90084D62E /* 16_true_type_fonts in CopyFiles */ = {isa = PBXBuildFile; fileRef = A785E4E81B55FC4E0084D62E /* 16_true_type_fonts */; };
+		A7B243391B58878500E08175 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7B243381B58878500E08175 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,8 @@
 		A785E4E11B55FAE50084D62E /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		A785E4E21B55FAE50084D62E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		A785E4E81B55FC4E0084D62E /* 16_true_type_fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 16_true_type_fonts; path = "../../../Documents/lazyfoo Src/16_true_type_fonts"; sourceTree = "<group>"; };
+		A7B243381B58878500E08175 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src_test/main.cpp; sourceTree = "<group>"; };
+		A7B2433A1B588BE400E08175 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Renderer.h; path = ../src_test/Renderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		A77C86C01B55F9A50073683A = {
 			isa = PBXGroup;
 			children = (
+				A7B2433A1B588BE400E08175 /* Renderer.h */,
+				A7B243381B58878500E08175 /* main.cpp */,
 				A785E4E81B55FC4E0084D62E /* 16_true_type_fonts */,
 				A785E4E01B55FAE50084D62E /* SDL2_image.framework */,
 				A785E4E11B55FAE50084D62E /* SDL2_ttf.framework */,
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7B243391B58878500E08175 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
