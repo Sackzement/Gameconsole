@@ -4,12 +4,16 @@
 #include <SDL2/SDL_surface.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_ttf/SDL_ttf.h>
-
 #include <map>
+#include <iostream>
 using namespace std;
 
+#include "types.h"
 
-typedef unsigned char byte;
+
+
+
+bool    quit = false;
 
 
 /* USING LIBS *
@@ -48,19 +52,14 @@ byte    initLibs()  {
 }
 
 
-#include "types.h"
 
 // WINDOW VARs
 const char*       WINDOW_TITLE       = "Jump N Pong" ;
-const vec<2,int>  WINDOW_POSITION    (100,100);
-const vec<2,int>  WINDOW_RESOLUTION  (800,600);
+const vec2<int>  WINDOW_POSITION    (100,100);
+const vec2<int>  WINDOW_RESOLUTION  (800,600);
 const Uint32      WINDOW_FLAG        = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL ;
 // RENDERER FLAGs
 const Uint32      RENDERER_FLAG      = SDL_RENDERER_ACCELERATED ;
-
-// FILES TO LOAD
-cchar*  FILE_TTF_FONT   = "res/lazy.ttf";
-cchar*  FILE_PNG_ULULU  = "res/ululu.png";
 
 // WINDOW & RENDERER
 SDL_Window*    window         = nullptr;
@@ -70,7 +69,7 @@ byte    createWindowAndRenderer()  {
     // CREATE WINDOW
     window   = SDL_CreateWindow( WINDOW_TITLE,
                                 WINDOW_POSITION.x,   WINDOW_POSITION.y,
-                                WINDOW_RESOLUTION.w, WINDOW_RESOLUTION.h,
+                                WINDOW_RESOLUTION.x, WINDOW_RESOLUTION.y,
                                 WINDOW_FLAG );
     if ( ! window )  {
         
@@ -106,46 +105,74 @@ byte    createWindowAndRenderer()  {
     return succNum ;
 }
 
-// KEYBOARD STATE
-map<SDL_Scancode, bool> kbState          = map<SDL_Scancode, bool>();
-map<SDL_Scancode, bool> kbStateOnceDown  = map<SDL_Scancode, bool>();
-map<SDL_Scancode, bool> kbStateOnceUp    = map<SDL_Scancode, bool>();
+// SCRIPT
+vector<void(*)()> scripts = vector<void(*)()> ();
 
-bool    quit = false;
-
-
-
-
-map<cchar*,SDL_Surface*>  sdlSurfaces    = map<cchar*,SDL_Surface*> ();
-map<cchar*,SDL_Texture*>  sdlTextures    = map<cchar*,SDL_Texture*> ();
-TTF_Font*                 font           = nullptr ;
-
-byte    loadResources  ()    {
-    
-    byte succNum = 0 ;
-    
-    // load IMG file
-    SDL_Surface* surf = IMG_Load(FILE_PNG_ULULU);
-    if( ! surf )
-        printf( "Error:  Failed to load image \"%s\"  %s\n", FILE_PNG_ULULU, SDL_GetError() );
-    else  {
-        sdlSurfaces[FILE_PNG_ULULU]  = surf;
-        succNum |= 1 ;
-    }
-    
-    // load font file
-    font = TTF_OpenFont( FILE_TTF_FONT, 28 );
-    if( ! font )
-        printf( "Error:  Failed to load font \"%s\"  %s\n", FILE_TTF_FONT, SDL_GetError() );
-    else  succNum |= 2 ;
-    
-    return succNum;
-}
+// INPUT KEYBOARD STATE
+map<SDL_Keycode, bool> kbState          = map<SDL_Keycode, bool>();
+map<SDL_Keycode, bool> kbStateOnceDown  = map<SDL_Keycode, bool>();
+map<SDL_Keycode, bool> kbStateOnceUp    = map<SDL_Keycode, bool>();
 
 
 #include "GameObject.h"
+// RENDER
+map<string,Texture*>  textures  = map<string,Texture*> ();
+map<string,TTF_Font*> fonts     = map<string,TTF_Font*> ();
+
+vector<string> resToLoad = vector<string> ();
+
+void    loadResources()    {
+    
+    for (auto it = resToLoad.begin(); it != resToLoad.end(); ++it)  {
+        
+        size_t pointPos = (*it).find('.');
+        if ( pointPos == -1 )
+            cout << *it << "  has no file ending \".file\"" << endl;
+        else  {
+
+            string fileEnding = (*it).substr(pointPos+1);
+            
+            if        ( fileEnding == "ttf" )  {
+             
+                TTF_Font* font = TTF_OpenFont( (*it).c_str(), 28 );
+                if( ! font )
+                    printf( "Error:  Failed to load font \"%s\"  %s\n", (*it).c_str(), SDL_GetError() );
+                else
+                    fonts[*it] = font;
+            }
+            else if ( ( fileEnding == "png" )
+                   || ( fileEnding == "jpg" ) )  {
+                
+                SDL_Surface* surf = IMG_Load( (*it).c_str() );
+                if( ! surf )
+                    printf( "Error:  Failed to load image \"%s\"  %s\n", (*it).c_str(), SDL_GetError() );
+                else  {
+                    SDL_Texture* sdlTex  = SDL_CreateTextureFromSurface(windowRenderer, surf);
+                    if ( ! sdlTex )
+                        printf( "Error:  Failed to create Texture from Surface image  \"%s\"  %s\n", (*it).c_str(), SDL_GetError() );
+                    else
+                        textures[*it] = new Texture(sdlTex, surf->w, surf->h);
+                    
+                    SDL_FreeSurface(surf);
+                }
+            }
+            else
+                cout << "No matching file ending for  " << fileEnding << endl;
+        }
+    }
+    
+}
+
+
 vector<GameObject*>  gameObjects  = vector<GameObject*> ();
 
+void    doScripts()  {
+    
+    for (auto it = scripts.begin(); it != scripts.end(); ++it)
+        (*it)();
+    
+    scripts.clear();
+}
 void    input()  {
     
     kbStateOnceDown.clear();
@@ -159,31 +186,40 @@ void    input()  {
                 break;
                 
             case SDL_KEYDOWN:
-                kbStateOnceDown [ev.key.keysym.scancode]  = 1;
-                kbState         [ev.key.keysym.scancode]  = 1;
+                kbStateOnceDown [ev.key.keysym.sym]  = 1;
+                kbState         [ev.key.keysym.sym]  = 1;
                 break;
                 
             case SDL_KEYUP:
-                kbStateOnceUp [ev.key.keysym.scancode]  = 1;
-                kbState       [ev.key.keysym.scancode]  = 0;
+                kbStateOnceUp [ev.key.keysym.sym]  = 1;
+                kbState       [ev.key.keysym.sym]  = 0;
                 break;
         }
     
-    for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
+    for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)  {
+        
         (*it)->input();
+        (*it)->inputChildren();
+    }
 }
 void    update()  {
     
-    for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
+    for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)  {
+        
         (*it)->update();
+        (*it)->updateChildren();
+    }
 }
 void    render()  {
     
     SDL_SetRenderDrawColor(windowRenderer, 0,0,0,0);
     SDL_RenderClear(windowRenderer);
     
-    for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)
+    for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)  {
+        
         (*it)->render();
+        (*it)->renderChildren();
+    }
     
     SDL_RenderPresent(windowRenderer);
 }

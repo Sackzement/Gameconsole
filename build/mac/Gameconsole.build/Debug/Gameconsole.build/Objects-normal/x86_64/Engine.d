@@ -1,5 +1,6 @@
-dependencies: /Users/piit/Wolke/Development/Projects/Gameconsole/main.cpp \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/include/Engine.h \
+dependencies: \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/Engine.cpp \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/Engine.h \
   /Library/Frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_main.h \
@@ -46,6 +47,6 @@ dependencies: /Users/piit/Wolke/Development/Projects/Gameconsole/main.cpp \
   /Library/Frameworks/SDL2.framework/Headers/SDL_timer.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/include/Window.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/include/types.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/include/GameObject.h
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/Window.h \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/types.h \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/GameObject.h

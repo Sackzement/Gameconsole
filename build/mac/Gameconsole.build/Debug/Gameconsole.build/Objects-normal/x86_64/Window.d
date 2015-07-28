@@ -1,7 +1,6 @@
 dependencies: \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/GameObject.cpp \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/GameObject.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/types.h \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/Window.cpp \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/Window.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_render.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_stdinc.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_config.h \
@@ -15,4 +14,5 @@ dependencies: \
   /Library/Frameworks/SDL2.framework/Headers/SDL_rwops.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_video.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_surface.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_blendmode.h
+  /Library/Frameworks/SDL2.framework/Headers/SDL_blendmode.h \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/src/../include/types.h
