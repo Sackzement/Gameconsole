@@ -1,5 +1,12 @@
 #include "../include/GameObject.h"
 #include <algorithm>
+#include "../include/Engine.h"
+
+
+
+
+
+
 
 GameObject:: GameObject()
 :
@@ -8,38 +15,32 @@ size(1.,1.),
 m_children(nullptr)
 {}
 
-GameObject GameObject:: copy() const  {
-    
-    GameObject go;
-    
-    go.pos         = this->pos;
-    go.size        = this->size;
-    go.m_children  = this->m_children;
-    
-    return go;
-}
-void GameObject:: input() const  {}
-void GameObject:: update() const {}
-void GameObject:: render( SDL_Renderer* rend ) const {}
+void GameObject:: input()   {}
+void GameObject:: update()  {}
+void GameObject:: render()  {}
 
-void GameObject:: renderChildren(SDL_Renderer* rend) const  {
+void GameObject:: renderChildren ()               const  {
     
     if ( hasChildren() )  {
         
         std::vector<GameObject*>::iterator it;
         for (it = m_children->begin(); it != m_children->end(); ++it)  {
             
-            GameObject offset = (*it)->copy();
+            vec2<double> posBKP   = (*it)->pos;
+            vec2<double> sizeBKP  = (*it)->size;
             
-            offset.pos    = this->pos + (offset.pos * this->size);
-            offset.size  *= this->size;
+            (*it)->pos   =  this->pos + ((*it)->pos * this->size);
+            (*it)->size  *= this->size;
             
-            offset.render(rend);
-            offset.renderChildren(rend);
+            (*it)->render();
+            (*it)->renderChildren();
+            
+            (*it)->pos  = posBKP;
+            (*it)->size = sizeBKP;
         }
     }
 }
-bool GameObject:: hasChildren() const  {
+bool GameObject::    hasChildren ()               const  {
     
     if ( m_children == nullptr
       || m_children->empty() )
@@ -47,7 +48,7 @@ bool GameObject:: hasChildren() const  {
     else
         return true;
 }
-bool GameObject:: hasChild(GameObject* ch) const  {
+bool GameObject::       hasChild (GameObject* ch) const  {
     
     if ( m_children != nullptr
      && std::find(m_children->begin(),m_children->end(),ch) != m_children->end() )
@@ -55,7 +56,8 @@ bool GameObject:: hasChild(GameObject* ch) const  {
     else
         return false;
 }
-void GameObject:: addChild(GameObject* ch)  {
+
+void GameObject::    addChild (GameObject* ch)  {
     
     if ( ch )  {
         
@@ -67,7 +69,7 @@ void GameObject:: addChild(GameObject* ch)  {
     }
     
 }
-void GameObject:: removeChild(GameObject* ch)  {
+void GameObject:: removeChild (GameObject* ch)  {
     
     if (ch && m_children)  {
         
@@ -92,17 +94,138 @@ void GameObject:: removeAllChildren()  {
 
 
 
-void RectFill:: render( SDL_Renderer* rend ) const  {
+
+Color:: Color() :
+   m_color (0),
+         r ( *((Uint8*)&m_color) ),
+         g ( *(&r+1) ),
+         b ( *(&r+2) ),
+         a ( *(&r+3) )
+{}
+
+Color:: Color(Uint32 newColor) : Color()
+{
+    m_color = newColor;
+}
+
+       Color::  operator Uint32  () const           {
+    return m_color;
+}
+Color& Color::  operator =       (Uint32 newColor)  {
+    
+    m_color = newColor;
+    
+    return *this;
+}
+
+
+
+
+
+
+
+Shape:: Shape() :
+GameObject (),
+     color (0xffffffff)
+{}
+
+
+
+
+
+
+void Rect:: render()  {
     
     SDL_Rect rect = {};
     rect.x = static_cast<int>( pos.x );
     rect.y = static_cast<int>( pos.y );
-    rect.x = static_cast<int>( size.x );
-    rect.y = static_cast<int>( size.y );
+    rect.w = static_cast<int>( size.x );
+    rect.h = static_cast<int>( size.y );
     
-    SDL_SetRenderDrawColor(rend, color.r, color.g, color.b, color.a);
-    SDL_RenderFillRect(rend, &rect);
+    SDL_SetRenderDrawColor(engine.window, color.r, color.g, color.b, color.a);
+    SDL_RenderFillRect(engine.window, &rect);
 }
+
+
+
+
+
+
+
+Texture:: Texture() :
+    w (m_w),
+    h (m_h),
+    m_sdlTexture (nullptr),
+    m_w (0),
+    m_h (0)
+{}
+Texture:: Texture( SDL_Texture* sdlTexture, int width, int height ) :
+    Texture()
+{
+    setSdlTexture( sdlTexture, width, height );
+}
+
+void Texture:: setSdlTexture( SDL_Texture* sdlTexture, int width, int height )  {
+    
+    m_sdlTexture = sdlTexture;
+    
+    m_w  = width;
+    m_h  = height;
+}
+         Texture::  operator SDL_Texture* () {
+    
+    return m_sdlTexture;
+}
+Texture& Texture::  operator = (const Texture& tex)  {
+    
+    this->m_sdlTexture = tex.m_sdlTexture;
+    this->m_w = tex.m_w;
+    this->m_h = tex.m_h;
+    
+    return *this;
+}
+
+
+
+
+
+
+
+Image::  Image () :
+    GameObject (),
+    m_clipRect (nullptr),
+       texture (),
+          flip (0),
+           rot (0.)
+{}
+
+void Image::  render()  {
+    
+    SDL_Rect toRect;
+    
+    toRect.x  = pos.x;
+    toRect.y  = pos.y;
+    toRect.w  = size.x * (float)texture.w;
+    toRect.h  = size.y * (float)texture.h;
+    
+    SDL_RenderCopyEx( engine.window, texture, m_clipRect, &toRect, rot, NULL, (SDL_RendererFlip)flip );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../main.cpp"
-            timestampString = "459818344.489506"
+            timestampString = "459834109.669851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "main (int argc, char** argv)"
             landmarkType = "7">
          </BreakpointContent>
@@ -209,14 +209,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../include/Engine.h"
-            timestampString = "459818432.493538"
+            filePath = "../src/GameObject.cpp"
+            timestampString = "459834104.067243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "doRender()"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "Shape:: Shape()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shape::Shape()"
+                  moduleName = "Gameconsole"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piit/Wolke/Development/Projects/Gameconsole/src/GameObject.cpp"
+                  timestampString = "459834109.970925"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Shape::Shape()"
+                  moduleName = "Gameconsole"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/piit/Wolke/Development/Projects/Gameconsole/src/GameObject.cpp"
+                  timestampString = "459834109.971088"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
