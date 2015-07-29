@@ -22,9 +22,19 @@ class Player  : public GameObject  {
 public:
     double speed = .2;
     
+    Player() : GameObject()  {
+        size = vec2<double>(.05,.05);
+        
+        Rect* rec = new Rect();
+        addChild(rec);
+    }
+    
     void update() override  {
         
-        if (engine.kbState[SDLK_UP])  pos.y += speed * engine.deltaTime;
+        if (engine.kbState[SDLK_UP])     pos.y  -= speed * engine.deltaTime;
+        if (engine.kbState[SDLK_DOWN])   pos.y  += speed * engine.deltaTime;
+        if (engine.kbState[SDLK_LEFT])   pos.x  -= speed * engine.deltaTime;
+        if (engine.kbState[SDLK_RIGHT])  pos.x  += speed * engine.deltaTime;
     }
     void input()  override  {
         
@@ -47,6 +57,9 @@ void ululu()  {
     
     MyInput* inp = new MyInput();
     engine.gameObjects.push_back(inp);
+    
+    Player* pl = new Player();
+    screen->addChild(pl);
 }
 
 int main (int argc, char** argv)  {

@@ -99,9 +99,10 @@ void    Engine:: loadResources()  {
     }
 void    Engine:: enterMainLoop()  {
     
-    calcDeltaTime();
+    capGtimeCalcDt();// once before loop
     
     while ( ! quit ) {
+        capGtimeCalcDt();
         doScripts();
         doInput();
         doUpdate();
@@ -113,6 +114,9 @@ void    Engine:: capGtimeCalcDt()  {
     
     Uint32 lastGameTime = m_gameTime;
     m_gameTime = SDL_GetTicks();
+    
+    
+    m_deltaTime = .001 * static_cast<double>(m_gameTime - lastGameTime);
 }
 void    Engine:: doScripts()      {
         
@@ -147,6 +151,7 @@ void    Engine:: doInput()        {
         for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)  {
             
             (*it)->input();
+            (*it)->inputChildren();
         }
     }
 void    Engine:: doUpdate()       {
@@ -154,6 +159,7 @@ void    Engine:: doUpdate()       {
         for (auto it = gameObjects.begin(); it != gameObjects.end(); ++it)  {
             
             (*it)->update();
+            (*it)->updateChildren();
         }
     }
 void    Engine:: doRender()       {

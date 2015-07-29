@@ -19,7 +19,10 @@ public:
     virtual void update();
     virtual void render();
     
+    void inputChildren()  const;
+    void updateChildren() const;
     void renderChildren() const;
+    
     bool hasChildren() const;
     bool hasChild(GameObject* ch) const;
     void addChild(GameObject* ch);

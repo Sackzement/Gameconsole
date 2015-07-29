@@ -19,6 +19,30 @@ void GameObject:: input()   {}
 void GameObject:: update()  {}
 void GameObject:: render()  {}
 
+void GameObject:: inputChildren ()               const  {
+    
+    if ( hasChildren() )  {
+        
+        std::vector<GameObject*>::iterator it;
+        for (it = m_children->begin(); it != m_children->end(); ++it)  {
+            
+            (*it)->input();
+            (*it)->inputChildren();
+        }
+    }
+}
+void GameObject:: updateChildren ()               const  {
+    
+    if ( hasChildren() )  {
+        
+        std::vector<GameObject*>::iterator it;
+        for (it = m_children->begin(); it != m_children->end(); ++it)  {
+            
+            (*it)->update();
+            (*it)->updateChildren();
+        }
+    }
+}
 void GameObject:: renderChildren ()               const  {
     
     if ( hasChildren() )  {
@@ -96,7 +120,7 @@ void GameObject:: removeAllChildren()  {
 
 
 Color:: Color() :
-   m_color (0),
+   m_color (0xffffffff),
          r ( *((Uint8*)&m_color) ),
          g ( *(&r+1) ),
          b ( *(&r+2) ),

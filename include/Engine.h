@@ -54,7 +54,7 @@ public:
     void    enterMainLoop();
     
 private:
-    void    calcDeltaTime();
+    void    capGtimeCalcDt();
     void    doScripts();
     void    doInput();
     void    doUpdate();
