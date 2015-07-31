@@ -1,29 +1,14 @@
 #include "include/Engine.h"
-
-Engine engine;
-
-void setWindowDefaultValues()  {
-    
-    engine.window.setTitle("Jump n Pong");
-    engine.window.setResolution(2880,1800);
-    engine.window.setFullscreen(true);
-}
-
-
-class  MyInput  : public GameObject  {
-public:
-    void input() override  {
-        if (engine.kbStateOnceDown[SDLK_ESCAPE])
-            engine.quit = true;
-    }
-};
+#include "include/Level1.h"
+#include "include/PCinfo.h"
 
 class Player  : public GameObject  {
 public:
-    double speed = .2;
+    double speed = .8;
     
     Player() : GameObject()  {
-        size = vec2<double>(.05,.05);
+        pos = vec2<double>(.1,.8);
+        size = .1;
         
         Rect* rec = new Rect();
         addChild(rec);
@@ -42,29 +27,72 @@ public:
     
 };
 
+Engine engine;
+GameObject* screen;
+PCinfo* pc;
+Level1 * lvl;
+Player * pl;
+
+void setWindowDefaultValues()  {
+    
+    engine.window.setTitle("Jump n Pong");
+    engine.window.setSize(2880,1800);
+    engine.window.setFullscreen(true);
+}
+
+
+class  MyInput  : public GameObject  {
+public:
+    void input() override  {
+        if (engine.kbStateOnceDown[SDLK_ESCAPE])
+            engine.quit = true;
+        
+        if (engine.kbStateOnceDown[SDLK_SPACE])  {
+            
+            SDL_DisplayMode largestMode = pc->displays[0].getLargesMode();
+            engine.window.setDisplayMode(largestMode);
+            
+            screen->size   = engine.window.size.y;
+            //screen->pos.x  = double(engine.window.size.x - engine.window.size.y) * .5;
+            //screen->pos.y  =
+            
+        }
+    }
+};
+
+
+
 void ululu()  {
     
-    GameObject* screen = new GameObject();
-    screen->size       = vec2<double>(2880.,1800.);
+    screen = new GameObject();
+    screen->size   = engine.window.size.y;
+    //screen->pos.x  = double(engine.window.size.x - engine.window.size.y) * .5;
+    //screen->pos.y  =
     
-    Rect* rec = new Rect();
-    rec->size     = vec2<double>(.1,.1);
-    rec->color    = 0xff0000ff;
     
-    screen->addChild(rec);
     engine.gameObjects.push_back(screen);
     
     
     MyInput* inp = new MyInput();
     engine.gameObjects.push_back(inp);
     
-    Player* pl = new Player();
+    lvl = new Level1();
+    screen->addChild( lvl );
+    
+    pl = new Player();
     screen->addChild(pl);
+}
+
+void checkCollision()  {
+    
+    
 }
 
 int main (int argc, char** argv)  {
     
     engine.initLibs();
+    
+    pc = new PCinfo();
     
     setWindowDefaultValues();
  

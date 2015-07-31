@@ -8,18 +8,76 @@
 
 
 
-GameObject:: GameObject()
-:
-pos(0.,0.),
-size(1.,1.),
+GameObject:: GameObject() :
+
+pos(0.),
+size(1.),
+
+m_parent(nullptr),
 m_children(nullptr)
 {}
+
+
 
 void GameObject:: input()   {}
 void GameObject:: update()  {}
 void GameObject:: render()  {}
 
-void GameObject:: inputChildren ()               const  {
+bool GameObject:: hasParent() const  {
+    
+    if (m_parent)
+        return true;
+    else
+        return false;
+}
+GameObject * GameObject:: getParent() const  {
+    
+    return m_parent;
+}
+void GameObject:: addParent(GameObject* newParent)  {
+    
+    if (newParent  &&  newParent != m_parent)  {
+        
+        if (m_parent) {
+            GameObject * oldParent = m_parent;
+            m_parent = nullptr;
+            
+            oldParent->removeChild(this);
+        }
+    
+        m_parent = newParent;
+        m_parent->addChild(this);
+    }
+}
+
+void GameObject:: removeParent()  {
+    
+    if (m_parent)  {
+        GameObject* oldParent = m_parent;
+        m_parent = nullptr;
+        
+        oldParent->removeChild(this);
+    }
+}
+
+
+bool GameObject::    hasChildren ()               const  {
+    
+    if ( m_children == nullptr
+        || m_children->empty() )
+        return false;
+    else
+        return true;
+}
+bool GameObject::       hasChild (GameObject* ch) const  {
+    
+    if ( m_children != nullptr
+        && std::find(m_children->begin(),m_children->end(),ch) != m_children->end() )
+        return true;
+    else
+        return false;
+}
+void GameObject::  inputChildren ()               const  {
     
     if ( hasChildren() )  {
         
@@ -64,22 +122,6 @@ void GameObject:: renderChildren ()               const  {
         }
     }
 }
-bool GameObject::    hasChildren ()               const  {
-    
-    if ( m_children == nullptr
-      || m_children->empty() )
-        return false;
-    else
-        return true;
-}
-bool GameObject::       hasChild (GameObject* ch) const  {
-    
-    if ( m_children != nullptr
-     && std::find(m_children->begin(),m_children->end(),ch) != m_children->end() )
-        return true;
-    else
-        return false;
-}
 
 void GameObject::    addChild (GameObject* ch)  {
     
@@ -88,8 +130,10 @@ void GameObject::    addChild (GameObject* ch)  {
         if ( ! m_children )
             m_children = new std::vector<GameObject*>();
             
-        if ( ! hasChild(ch) )
+        if ( ! hasChild(ch) )  {
             m_children->push_back(ch);
+            ch->addParent(this);
+        }
     }
     
 }
@@ -101,7 +145,9 @@ void GameObject:: removeChild (GameObject* ch)  {
         it  = std::find(m_children->begin(),m_children->end(),ch);
         
         if (it != m_children->end() )  {
+            GameObject* oldChild = *it;
             m_children->erase(it);
+            oldChild->removeParent();
             
             if ( m_children->empty() )
                 delete m_children;
@@ -127,7 +173,7 @@ Color:: Color() :
          a ( *(&r+3) )
 {}
 
-Color:: Color(Uint32 newColor) : Color()
+Color:: Color(const Uint32& newColor) : Color()
 {
     m_color = newColor;
 }
@@ -135,7 +181,13 @@ Color:: Color(Uint32 newColor) : Color()
        Color::  operator Uint32  () const           {
     return m_color;
 }
-Color& Color::  operator =       (Uint32 newColor)  {
+Color& Color::  operator =       (const Color& newColor)  {
+    
+    m_color = newColor.m_color;
+    
+    return *this;
+}
+Color& Color::  operator =       (const Uint32& newColor)  {
     
     m_color = newColor;
     

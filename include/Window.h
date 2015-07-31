@@ -4,28 +4,45 @@
 
 class Window  {
 public:
-    bool     create();
+    Window();
     
-    void     setTitle (const std::string& s);
-    void     setResolution (const int& w, const int& h);
-    void     setPosition (const int& x, const int& y);
-    void     setFullscreen(bool val);
-    std::string     getTitle()          const;
-    vec2<int>       getResolution()     const;
-    vec2<int>       getPosition()       const;
+    const std::string &     title;
+    const vec2<int> &       pos;
+    const vec2<int> &       size;
+    const double &          aspectRatio;
+    const bool &            fullscreen;
+    const unsigned int &    flagsWindow;
+    const unsigned int &    flagsRenderer;
+    const SDL_DisplayMode & displayMode;
     
-    operator SDL_Window* ();
-    operator SDL_Renderer* ();
+    
+    
+    bool              create ();
+    
+    void            setTitle (const std::string& newTitle);
+    void              setPos (const int& x, const int& y);
+    void             setSize (const int& w, const int& h);
+    void       setFullscreen (const bool val);
+    void      setDisplayMode (const SDL_DisplayMode& newMode);
+    void     updateVariables ();
+    
+    operator    SDL_Window * ();
+    operator  SDL_Renderer * ();
+    
+    
     
 private:
-    std::string      m_title          = "";
-    vec2<int>        m_position       = vec2<int>(SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED);
-    vec2<int>        m_resolution     = vec2<int>(800,600);
-    unsigned int     m_flagsWindow    = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL ;
-    unsigned int     m_flagsRenderer  = SDL_RENDERER_ACCELERATED ;
+    std::string      m_title;
+    vec2<int>        m_pos;
+    vec2<int>        m_size;
+    double           m_aspectRatio;
+    bool             m_fullscreen;
+    unsigned int     m_flagsWindow;
+    unsigned int     m_flagsRenderer;
     
-    SDL_Window*      m_sdlWindow      = nullptr;
-    SDL_Renderer*    m_sdlRenderer    = nullptr;
+    SDL_Window*      m_sdlWindow;
+    SDL_Renderer*    m_sdlRenderer;
+    SDL_DisplayMode  m_displayMode;
 };
 
 

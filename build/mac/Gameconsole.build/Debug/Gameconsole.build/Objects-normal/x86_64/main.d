@@ -48,4 +48,6 @@ dependencies: /Users/piit/Wolke/Development/Projects/Gameconsole/main.cpp \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
   /Users/piit/Wolke/Development/Projects/Gameconsole/include/Window.h \
   /Users/piit/Wolke/Development/Projects/Gameconsole/include/types.h \
-  /Users/piit/Wolke/Development/Projects/Gameconsole/include/GameObject.h
+  /Users/piit/Wolke/Development/Projects/Gameconsole/include/GameObject.h \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/include/Level1.h \
+  /Users/piit/Wolke/Development/Projects/Gameconsole/include/PCinfo.h

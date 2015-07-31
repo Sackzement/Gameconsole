@@ -19,7 +19,6 @@ typedef void (*Script) ();
 
 
 
-
 class Engine {
 private:
     Uint32  m_flagsSdl;
@@ -27,6 +26,9 @@ private:
     
     Uint32 m_gameTime;
     double m_deltaTime;
+    Uint16 m_fps;
+    double m_msPerFrame;
+    Uint32 m_delayTime;
     
 public:
     bool    quit;
@@ -42,7 +44,10 @@ public:
     std::map<SDL_Keycode, bool>      kbStateOnceDown;
     std::map<SDL_Keycode, bool>      kbStateOnceUp;
     
+    const Uint32 &                   gameTime;
     const double &                   deltaTime;
+    const Uint16 &                   fps;
+    
     std::vector<GameObject*>         gameObjects;
     
     // FUNCTIONS-----------------------------------
@@ -52,12 +57,14 @@ public:
     byte    initLibs();
     void    loadResources();
     void    enterMainLoop();
+    void    setFPS(const Uint16& newFPS);
     
 private:
     void    capGtimeCalcDt();
     void    doScripts();
     void    doInput();
     void    doUpdate();
+    void    delay();
     void    doRender();
 };
 

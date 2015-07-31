@@ -13,6 +13,8 @@ public:
     vec2<double>  pos;
     vec2<double>  size;
     
+    
+    
     GameObject();
     
     virtual void input();
@@ -23,13 +25,21 @@ public:
     void updateChildren() const;
     void renderChildren() const;
     
+    bool hasParent() const;
+    GameObject* getParent() const;
+    void addParent(GameObject* newParent);
+    void removeParent();
+    
     bool hasChildren() const;
     bool hasChild(GameObject* ch) const;
     void addChild(GameObject* ch);
     void removeChild(GameObject* ch);
     void removeAllChildren();
 
+    
+    
 protected:
+    GameObject*                m_parent;
     std::vector<GameObject*> * m_children;
     
 };
@@ -46,9 +56,10 @@ public:
     Uint8& a;
     
     Color();
-    Color(Uint32 newColor);
+    Color(const Uint32& newColor);
            operator Uint32    () const;
-    Color& operator =         (Uint32 newColor);
+    Color& operator =         (const Color& newColor);
+    Color& operator =         (const Uint32& newColor);
 };
 
 

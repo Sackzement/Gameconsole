@@ -13,6 +13,9 @@ m_flagsSdlImg (IMG_INIT_PNG),
 
 m_gameTime(0),
 m_deltaTime(0.),
+m_fps(60),
+m_msPerFrame(1000./(double)m_fps),
+m_delayTime(0),
 
   quit (false),
 window (),
@@ -27,9 +30,13 @@ resToLoad (),
 kbStateOnceDown (),
   kbStateOnceUp (),
 
-deltaTime(m_deltaTime),
+ gameTime (m_gameTime),
+deltaTime (m_deltaTime),
+      fps (m_fps),
+
 gameObjects ()
 {}
+
 
 byte    Engine:: initLibs()       {
     
@@ -99,18 +106,25 @@ void    Engine:: loadResources()  {
     }
 void    Engine:: enterMainLoop()  {
     
-    capGtimeCalcDt();// once before loop
+    capGtimeCalcDt();
+    m_delayTime = gameTime;
     
     while ( ! quit ) {
         capGtimeCalcDt();
         doScripts();
         doInput();
         doUpdate();
+        delay();
         doRender();
     }
 }
+void    Engine:: setFPS(const Uint16& newFPS)  {
+    
+    m_fps = newFPS;
+    m_msPerFrame = 1000. / double(m_fps);
+}
 
-void    Engine:: capGtimeCalcDt()  {
+void    Engine:: capGtimeCalcDt() {
     
     Uint32 lastGameTime = m_gameTime;
     m_gameTime = SDL_GetTicks();
@@ -162,6 +176,21 @@ void    Engine:: doUpdate()       {
             (*it)->updateChildren();
         }
     }
+void    Engine:: delay()          {
+    
+    Uint32 oldDelayTime = m_delayTime;
+    m_delayTime = SDL_GetTicks();
+    
+    Uint32 diff =m_delayTime - oldDelayTime;
+    
+    if ( double(diff) < m_msPerFrame )  {
+        
+        Uint32 toWait = m_msPerFrame - double(diff);
+        SDL_Delay(toWait);
+    }
+    
+    m_delayTime = SDL_GetTicks();
+}
 void    Engine:: doRender()       {
         
         SDL_SetRenderDrawColor(window, 0,0,0,255);
