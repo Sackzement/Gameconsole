@@ -7,7 +7,7 @@
 #include "Window.h"
 #include "GameObject.h"
 
-typedef void (*Script) ();
+typedef void (*func) ();
 
 
 
@@ -38,7 +38,7 @@ public:
     std::map<std::string,Texture*>   textures;
     std::map<std::string,TTF_Font*>  fonts;
     
-    std::vector<Script>              scripts;
+    std::vector<func>                scripts;
     
     std::map<SDL_Keycode, bool>      kbState;
     std::map<SDL_Keycode, bool>      kbStateOnceDown;
@@ -47,6 +47,8 @@ public:
     const Uint32 &                   gameTime;
     const double &                   deltaTime;
     const Uint16 &                   fps;
+    
+    std::vector<func>                collChecks;
     
     std::vector<GameObject*>         gameObjects;
     
@@ -59,12 +61,13 @@ public:
     void    enterMainLoop();
     void    setFPS(const Uint16& newFPS);
     
-private:
-    void    capGtimeCalcDt();
+//private:
+    void    doCapGtimeCalcDt();
     void    doScripts();
     void    doInput();
     void    doUpdate();
-    void    delay();
+    void    doCollision();
+    void    doDelay();
     void    doRender();
 };
 

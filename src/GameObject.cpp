@@ -69,6 +69,10 @@ bool GameObject::    hasChildren ()               const  {
     else
         return true;
 }
+std::vector<GameObject*> * GameObject::  getChildren() const  {
+    
+    return m_children;
+}
 bool GameObject::       hasChild (GameObject* ch) const  {
     
     if ( m_children != nullptr
@@ -154,9 +158,51 @@ void GameObject:: removeChild (GameObject* ch)  {
         }
     }
 }
-void GameObject:: removeAllChildren()  {
+void GameObject:: removeAllChildren ()  {
     
     delete m_children;
+}
+
+bool GameObject:: checkColl (const GameObject & otherGO, vec2<double> & inters) const  {
+    
+    double thisRight  = pos.x + size.x;
+    double thisBottom = pos.y + size.y;
+    
+    double otherRight  = otherGO.pos.x + otherGO.size.x;
+    double otherBottom = otherGO.pos.y + otherGO.size.y;
+    
+    if ( (pos.x < otherRight  && thisRight >  otherGO.pos.x)
+      && (pos.y < otherBottom && thisBottom > otherGO.pos.y) )  {
+        
+        
+        double Amin, Amax, Bmin, Bmax;
+        
+        /* Horizontal intersection */
+        Amin = pos.x;
+        Amax = Amin + size.x;
+        Bmin = otherGO.pos.x;
+        Bmax = Bmin + otherGO.size.x;
+        if (Bmin > Amin)
+            Amin = Bmin;
+        if (Bmax < Amax)
+            Amax = Bmax;
+        inters.x = Amax - Amin;
+        
+        /* Vertical intersection */
+        Amin = pos.y;
+        Amax = Amin + size.y;
+        Bmin = otherGO.pos.y;
+        Bmax = Bmin + otherGO.size.y;
+        if (Bmin > Amin)
+            Amin = Bmin;
+        if (Bmax < Amax)
+            Amax = Bmax;
+        inters.y = Amax - Amin;
+        
+        return true;
+    }
+    else
+        return false;
 }
 
 
@@ -221,6 +267,24 @@ void Rect:: render()  {
     SDL_SetRenderDrawColor(engine.window, color.r, color.g, color.b, color.a);
     SDL_RenderFillRect(engine.window, &rect);
 }
+
+
+
+
+
+
+void RectLine:: render()  {
+    
+    SDL_Rect rect = {};
+    rect.x = static_cast<int>( pos.x );
+    rect.y = static_cast<int>( pos.y );
+    rect.w = static_cast<int>( size.x );
+    rect.h = static_cast<int>( size.y );
+    
+    SDL_SetRenderDrawColor(engine.window, color.r, color.g, color.b, color.a);
+    SDL_RenderDrawRect(engine.window, &rect);
+}
+
 
 
 

@@ -34,6 +34,8 @@ kbStateOnceDown (),
 deltaTime (m_deltaTime),
       fps (m_fps),
 
+collChecks (),
+
 gameObjects ()
 {}
 
@@ -106,15 +108,16 @@ void    Engine:: loadResources()  {
     }
 void    Engine:: enterMainLoop()  {
     
-    capGtimeCalcDt();
+    doCapGtimeCalcDt();
     m_delayTime = gameTime;
     
     while ( ! quit ) {
-        capGtimeCalcDt();
+        doCapGtimeCalcDt();
         doScripts();
         doInput();
         doUpdate();
-        delay();
+        doCollision();
+        doDelay();
         doRender();
     }
 }
@@ -124,7 +127,7 @@ void    Engine:: setFPS(const Uint16& newFPS)  {
     m_msPerFrame = 1000. / double(m_fps);
 }
 
-void    Engine:: capGtimeCalcDt() {
+void    Engine:: doCapGtimeCalcDt() {
     
     Uint32 lastGameTime = m_gameTime;
     m_gameTime = SDL_GetTicks();
@@ -152,7 +155,8 @@ void    Engine:: doInput()        {
                     break;
                     
                 case SDL_KEYDOWN:
-                    kbStateOnceDown [ev.key.keysym.sym]  = 1;
+                    if ( ev.key.repeat == 0 )
+                        kbStateOnceDown [ev.key.keysym.sym]  = 1;
                     kbState         [ev.key.keysym.sym]  = 1;
                     break;
                     
@@ -175,13 +179,18 @@ void    Engine:: doUpdate()       {
             (*it)->update();
             (*it)->updateChildren();
         }
-    }
-void    Engine:: delay()          {
+}
+void    Engine:: doCollision()      {
+    
+    for (auto it = collChecks.begin(); it != collChecks.end(); ++it)
+        (*it)();
+}
+void    Engine:: doDelay()        {
     
     Uint32 oldDelayTime = m_delayTime;
     m_delayTime = SDL_GetTicks();
     
-    Uint32 diff =m_delayTime - oldDelayTime;
+    Uint32 diff = m_delayTime - oldDelayTime;
     
     if ( double(diff) < m_msPerFrame )  {
         

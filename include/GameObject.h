@@ -31,10 +31,13 @@ public:
     void removeParent();
     
     bool hasChildren() const;
+    std::vector<GameObject*> * getChildren() const;
     bool hasChild(GameObject* ch) const;
     void addChild(GameObject* ch);
     void removeChild(GameObject* ch);
     void removeAllChildren();
+    
+    bool checkColl(const GameObject & otherGO, vec2<double> & inters) const;
 
     
     
@@ -70,6 +73,11 @@ public:
     Shape();
 };
 class  Rect   : public Shape   {
+public:
+    void render() override;
+    
+};
+class  RectLine   : public Shape   {
 public:
     void render() override;
     
