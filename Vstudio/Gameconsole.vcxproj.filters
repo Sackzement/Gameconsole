@@ -7,17 +7,27 @@
     <Filter Include="res">
       <UniqueIdentifier>{2590e4db-28fd-4eb1-9eae-00722367f50e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{61680ff1-98ab-4bd0-a550-8fd25c15ac99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\Sprite.h">
+    <ClCompile Include="..\src\Engine.cpp">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\types.h">
+    </ClCompile>
+    <ClCompile Include="..\src\GameObject.cpp">
       <Filter>src</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="..\src\Level1.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PCinfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Window.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\ululu.png">
@@ -28,5 +38,25 @@
     <Font Include="..\res\lazy.ttf">
       <Filter>res</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Engine.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\GameObject.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Level1.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\PCinfo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\types.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Window.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

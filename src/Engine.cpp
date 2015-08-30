@@ -182,8 +182,9 @@ void    Engine:: doUpdate()       {
 }
 void    Engine:: doCollision()      {
     
-    for (auto it = collChecks.begin(); it != collChecks.end(); ++it)
-        (*it)();
+	for (auto it = collChecks.begin(); it != collChecks.end(); ++it) {
+		(*it)();
+	}
 }
 void    Engine:: doDelay()        {
     

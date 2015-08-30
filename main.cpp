@@ -1,6 +1,7 @@
 #include "include/Engine.h"
 #include "include/Level1.h"
 #include "include/PCinfo.h"
+#include <algorithm>
 
 
 class Player  : public GameObject  {
@@ -25,7 +26,9 @@ public:
         
         if (engine.kbStateOnceDown[SDLK_UP])     speed.y = -jumpSpeed;
         if (engine.kbState[SDLK_LEFT])   moveDir -= 1;
-        if (engine.kbState[SDLK_RIGHT])  moveDir += 1;
+		if (engine.kbState[SDLK_RIGHT])  {
+			moveDir += 1;
+		}
         if (engine.kbStateOnceDown[SDLK_r])  pos = .5;
     }
     void update() override  {
@@ -177,7 +180,7 @@ void resolveCollisions()  {
         
         collisions.erase(collisions.begin());
         
-        for (auto it=collisions.begin(); it != collisions.end(); ++it)  {
+        for (auto it=collisions.begin(); it != collisions.end();)  {
             
             if ( (*it).objToMove->checkColl(*(*it).staticObj, (*it).collRect) )  {
                 
@@ -189,8 +192,10 @@ void resolveCollisions()  {
             }
             else  {
                 it = collisions.erase(it);
-                --it;
+				continue;
             }
+
+			++it;
         }
     }
 }

@@ -12,10 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\Sprite.h" />
-    <ClInclude Include="..\src\types.h" />
+    <ClCompile Include="..\src\Engine.cpp" />
+    <ClCompile Include="..\src\GameObject.cpp" />
+    <ClCompile Include="..\src\Level1.cpp" />
+    <ClCompile Include="..\src\PCinfo.cpp" />
+    <ClCompile Include="..\src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\ululu.png">
@@ -26,6 +27,14 @@
     <Font Include="..\res\lazy.ttf">
       <DeploymentContent>true</DeploymentContent>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Engine.h" />
+    <ClInclude Include="..\include\GameObject.h" />
+    <ClInclude Include="..\include\Level1.h" />
+    <ClInclude Include="..\include\PCinfo.h" />
+    <ClInclude Include="..\include\types.h" />
+    <ClInclude Include="..\include\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E04C09B7-1C63-4B0B-997D-58A557E3AEDC}</ProjectGuid>
