@@ -295,8 +295,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "class MyInput"
-            landmarkType = "3">
+            landmarkName = "setWindowDefaultValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -359,8 +359,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "setWindowDefaultValues()"
-            landmarkType = "7">
+            landmarkName = "class Selector"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -390,7 +390,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
-            endingLineNumber = "108">
+            endingLineNumber = "108"
+            landmarkName = "ululu()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -405,7 +407,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "resolveCollisions()"
+            landmarkName = "checkCollisions()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

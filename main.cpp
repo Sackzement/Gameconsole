@@ -46,6 +46,16 @@ PCinfo* pc;
 Level1 * lvl;
 Player * pl;
 
+class Selector : GameObject  {
+public:
+    void input() override {
+        if ( engine.kbStateOnceDown[SDLK_s] )  {
+            
+            
+        }
+    }
+};
+
 void setWindowDefaultValues()  {
     
     engine.window.setTitle("Jump n Pong");
