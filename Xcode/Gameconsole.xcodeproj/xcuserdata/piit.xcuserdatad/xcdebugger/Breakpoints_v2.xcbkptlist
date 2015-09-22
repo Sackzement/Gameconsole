@@ -262,9 +262,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "ululu()"
-            landmarkType = "7">
+            endingLineNumber = "90">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -374,9 +372,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "Window:: setDisplayMode (const SDL_DisplayMode&amp; newMode)"
-            landmarkType = "5">
+            endingLineNumber = "142">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -423,7 +419,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "151"
             endingLineNumber = "151"
-            landmarkName = "resolveCollisions()"
+            landmarkName = "sortFunc(collPair first, collPair second)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
