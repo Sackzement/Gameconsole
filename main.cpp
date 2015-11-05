@@ -1,3 +1,5 @@
+#include "include/sdf.h"
+
 #include "include/Engine.h"
 #include "include/Level1.h"
 #include "include/PCinfo.h"
@@ -6,7 +8,7 @@
 
 class Player  : public GameObject  {
 public:
-    vec2<double> speed  = 0.;
+    vec2<double> curr_speed  = 0.;
     double moveSpeed    = .8;
     int    moveDir      = 0;
     double fallAccel    = .002;
@@ -24,7 +26,7 @@ public:
         
         moveDir = 0;
         
-        if (engine.kbStateOnceDown[SDLK_UP])     speed.y = -jumpSpeed;
+		if (engine.kbStateOnceDown[SDLK_UP])     curr_speed.y = -jumpSpeed;
         if (engine.kbState[SDLK_LEFT])   moveDir -= 1;
 		if (engine.kbState[SDLK_RIGHT])  {
 			moveDir += 1;
@@ -35,11 +37,11 @@ public:
         
         double speedDelta = moveSpeed * engine.deltaTime;
         
-        speed.x = double(moveDir) * speedDelta;
+		curr_speed.x = double(moveDir) * speedDelta;
         
-        speed.y += fallAccel;
+		curr_speed.y += fallAccel;
         
-        pos += speed;
+		pos += curr_speed;
     }
 };
 
@@ -172,7 +174,7 @@ void resolveCollisions()  {
                 firstPair.objToMove->pos.y -= firstPair.collRect.y;
                 Player* plif = dynamic_cast<Player*>(firstPair.objToMove);
                 if (plif)
-                    plif->speed.y = 0.;
+					plif->curr_speed.y = 0.;
             }
             else
                 firstPair.objToMove->pos.y += firstPair.collRect.y;
@@ -225,6 +227,5 @@ int main (int argc, char** argv)  {
     engine.collChecks.push_back(&resolveCollisions);
     
     engine.enterMainLoop();
- 
     return 0;
  }

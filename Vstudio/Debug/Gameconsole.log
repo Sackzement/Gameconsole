@@ -1,4 +1,4 @@
-﻿Build started 30.08.2015 21:56:37.
+﻿Build started 04.11.2015 19:56:39.
      1>Project "C:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" on node 2 (Rebuild target(s)).
      1>PreBuildEvent:
          XCOPY "C:\Wolke\Development\Projects\Gameconsole\Vstudio\\..\res\*" "C:\Wolke\Development\Projects\Gameconsole\Vstudio\\res\*" /D /I
@@ -7,19 +7,13 @@
          0 File(s) copied
          0 File(s) copied
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp ..\src\Engine.cpp ..\src\GameObject.cpp ..\src\Level1.cpp ..\src\PCinfo.cpp ..\src\Window.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp ..\src\Engine.cpp ..\src\GameObject.cpp ..\src\Level1.cpp ..\src\PCinfo.cpp ..\src\sdf.cpp ..\src\Window.cpp
          Window.cpp
-     1>c:\wolke\development\projects\gameconsole\src\window.cpp(138): warning C4800: 'const unsigned int' : forcing value to bool 'true' or 'false' (performance warning)
+         sdf.cpp
          PCinfo.cpp
-     1>c:\wolke\development\projects\gameconsole\src\pcinfo.cpp(43): warning C4018: '<' : signed/unsigned mismatch
          Level1.cpp
          GameObject.cpp
-     1>c:\wolke\development\projects\gameconsole\src\gameobject.cpp(346): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\wolke\development\projects\gameconsole\src\gameobject.cpp(347): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\wolke\development\projects\gameconsole\src\gameobject.cpp(348): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\wolke\development\projects\gameconsole\src\gameobject.cpp(349): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
          Engine.cpp
-     1>c:\wolke\development\projects\gameconsole\src\engine.cpp(198): warning C4244: 'initializing' : conversion from 'double' to 'Uint32', possible loss of data
          main.cpp
          Generating Code...
        Link:
@@ -28,6 +22,7 @@
          Debug\GameObject.obj
          Debug\Level1.obj
          Debug\PCinfo.obj
+         Debug\sdf.obj
          Debug\Window.obj
      1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          Gameconsole.vcxproj -> C:\Wolke\Development\Projects\Gameconsole\Vstudio\Debug\Gameconsole.exe
@@ -35,4 +30,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.57
+Time Elapsed 00:00:03.95

@@ -40,7 +40,7 @@ SDL_DisplayMode Display::  getLargesMode() const  {
     
     SDL_DisplayMode ret = SDL_DisplayMode();
     
-    for (int i=0; i<modes.size(); ++i)  {
+    for (int i=0; i<int(modes.size()); ++i)  {
         
         if ( modes[i].w > ret.w )
             ret = modes[i];

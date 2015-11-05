@@ -195,7 +195,7 @@ void    Engine:: doDelay()        {
     
     if ( double(diff) < m_msPerFrame )  {
         
-        Uint32 toWait = m_msPerFrame - double(diff);
+		Uint32 toWait = Uint32( m_msPerFrame - double(diff) );
         SDL_Delay(toWait);
     }
     

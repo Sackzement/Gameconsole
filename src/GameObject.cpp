@@ -343,10 +343,10 @@ void Image::  render()  {
     
     SDL_Rect toRect;
     
-    toRect.x  = pos.x;
-    toRect.y  = pos.y;
-    toRect.w  = size.x * (float)texture.w;
-    toRect.h  = size.y * (float)texture.h;
+    toRect.x  = (int)pos.x;
+	toRect.y  = (int)pos.y;
+    toRect.w  = int( size.x * (float)texture.w );
+    toRect.h  = int( size.y * (float)texture.h );
     
     SDL_RenderCopyEx( engine.window, texture, m_clipRect, &toRect, rot, NULL, (SDL_RendererFlip)flip );
 }

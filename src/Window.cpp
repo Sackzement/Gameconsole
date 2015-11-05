@@ -135,7 +135,7 @@ void  Window::   updateVariables ()  {
         SDL_GetWindowSize(m_sdlWindow, &m_size.x, &m_size.y);
         m_aspectRatio = (double)size.x/(double)size.y;
         m_flagsWindow  = SDL_GetWindowFlags(m_sdlWindow);
-        m_fullscreen   = flagsWindow & SDL_WINDOW_FULLSCREEN_DESKTOP;
+        m_fullscreen   = (flagsWindow & SDL_WINDOW_FULLSCREEN_DESKTOP) != 0;
         SDL_GetWindowDisplayMode(m_sdlWindow, &m_displayMode);
     }
 }
