@@ -28,6 +28,9 @@
     <ClCompile Include="..\src\Window.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\sdf.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\ululu.png">
@@ -56,6 +59,12 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Window.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Scene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sdf.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

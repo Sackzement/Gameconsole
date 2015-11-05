@@ -16,6 +16,7 @@
     <ClCompile Include="..\src\GameObject.cpp" />
     <ClCompile Include="..\src\Level1.cpp" />
     <ClCompile Include="..\src\PCinfo.cpp" />
+    <ClCompile Include="..\src\sdf.cpp" />
     <ClCompile Include="..\src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +34,8 @@
     <ClInclude Include="..\include\GameObject.h" />
     <ClInclude Include="..\include\Level1.h" />
     <ClInclude Include="..\include\PCinfo.h" />
+    <ClInclude Include="..\include\Scene.h" />
+    <ClInclude Include="..\include\sdf.h" />
     <ClInclude Include="..\include\types.h" />
     <ClInclude Include="..\include\Window.h" />
   </ItemGroup>

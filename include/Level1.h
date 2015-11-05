@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "sdf.h"
 
 class Wall : public Rect  {
 public:
