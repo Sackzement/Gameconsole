@@ -1,4 +1,4 @@
-﻿Build started 04.11.2015 19:56:39.
+﻿Build started 06.11.2015 01:29:39.
      1>Project "C:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" on node 2 (Rebuild target(s)).
      1>PreBuildEvent:
          XCOPY "C:\Wolke\Development\Projects\Gameconsole\Vstudio\\..\res\*" "C:\Wolke\Development\Projects\Gameconsole\Vstudio\\res\*" /D /I
@@ -30,4 +30,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.95
+Time Elapsed 00:00:04.01
