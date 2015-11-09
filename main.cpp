@@ -1,8 +1,10 @@
+
+#include "include/Window2.h"
 #include "include/sdf.h"
 
 #include "include/Engine.h"
 #include "include/Level1.h"
-#include "include/PCinfo.h"
+#include "include/HardwareInfo.h"
 #include <algorithm>
 
 
@@ -23,7 +25,7 @@ public:
     }
     
     void input()  override  {
-        
+
         moveDir = 0;
         
 		if (engine.kbStateOnceDown[SDLK_UP])     curr_speed.y = -jumpSpeed;
@@ -47,7 +49,7 @@ public:
 
 Engine engine;
 GameObject* screen;
-PCinfo* pc;
+HardwareInfo pc;
 Level1 * lvl;
 Player * pl;
 
@@ -78,7 +80,7 @@ public:
         
         if (engine.kbStateOnceDown[SDLK_SPACE])  {
             
-            SDL_DisplayMode largestMode = pc->displays[0].getLargesMode();
+            SDL_DisplayMode largestMode = pc.getDisplay().getLargesMode();
             engine.window.setDisplayMode(largestMode);
             
             screen->size     = engine.window.size.y;
@@ -97,7 +99,6 @@ void ululu()  {
     screen->size     = engine.window.size.y;
     //screen->pos.x  = double(engine.window.size.x - engine.window.size.y) * .5;
     //screen->pos.y  =
-    
     
     engine.gameObjects.push_back(screen);
     
@@ -206,7 +207,7 @@ int main (int argc, char** argv)  {
     
     engine.initLibs();
     
-    pc = new PCinfo();
+    pc.update();
     
     setWindowDefaultValues();
  

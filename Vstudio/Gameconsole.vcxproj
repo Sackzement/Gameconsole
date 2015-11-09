@@ -15,9 +15,9 @@
     <ClCompile Include="..\src\Engine.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
     <ClCompile Include="..\src\Level1.cpp" />
-    <ClCompile Include="..\src\PCinfo.cpp" />
-    <ClCompile Include="..\src\sdf.cpp" />
+    <ClCompile Include="..\src\HardwareInfo.cpp" />
     <ClCompile Include="..\src\Window.cpp" />
+    <ClCompile Include="..\src\Window2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\ululu.png">
@@ -33,11 +33,12 @@
     <ClInclude Include="..\include\Engine.h" />
     <ClInclude Include="..\include\GameObject.h" />
     <ClInclude Include="..\include\Level1.h" />
-    <ClInclude Include="..\include\PCinfo.h" />
+    <ClInclude Include="..\include\HardwareInfo.h" />
     <ClInclude Include="..\include\Scene.h" />
     <ClInclude Include="..\include\sdf.h" />
     <ClInclude Include="..\include\types.h" />
     <ClInclude Include="..\include\Window.h" />
+    <ClInclude Include="..\include\Window2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E04C09B7-1C63-4B0B-997D-58A557E3AEDC}</ProjectGuid>

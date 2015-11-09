@@ -22,13 +22,13 @@
     <ClCompile Include="..\src\Level1.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\PCinfo.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Window.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\sdf.cpp">
+    <ClCompile Include="..\src\HardwareInfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Window2.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -52,9 +52,6 @@
     <ClInclude Include="..\include\Level1.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\PCinfo.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\types.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -65,6 +62,12 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\sdf.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HardwareInfo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Window2.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿Build started 06.11.2015 01:29:39.
+﻿Build started 09.11.2015 20:50:06.
      1>Project "C:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" on node 2 (Rebuild target(s)).
      1>PreBuildEvent:
          XCOPY "C:\Wolke\Development\Projects\Gameconsole\Vstudio\\..\res\*" "C:\Wolke\Development\Projects\Gameconsole\Vstudio\\res\*" /D /I
@@ -7,10 +7,10 @@
          0 File(s) copied
          0 File(s) copied
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp ..\src\Engine.cpp ..\src\GameObject.cpp ..\src\Level1.cpp ..\src\PCinfo.cpp ..\src\sdf.cpp ..\src\Window.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp ..\src\Engine.cpp ..\src\GameObject.cpp ..\src\Level1.cpp ..\src\HardwareInfo.cpp ..\src\Window.cpp ..\src\Window2.cpp
+         Window2.cpp
          Window.cpp
-         sdf.cpp
-         PCinfo.cpp
+         HardwareInfo.cpp
          Level1.cpp
          GameObject.cpp
          Engine.cpp
@@ -21,13 +21,13 @@
          Debug\Engine.obj
          Debug\GameObject.obj
          Debug\Level1.obj
-         Debug\PCinfo.obj
-         Debug\sdf.obj
+         Debug\HardwareInfo.obj
          Debug\Window.obj
+         Debug\Window2.obj
      1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          Gameconsole.vcxproj -> C:\Wolke\Development\Projects\Gameconsole\Vstudio\Debug\Gameconsole.exe
      1>Done Building Project "C:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.01
+Time Elapsed 00:00:04.29
