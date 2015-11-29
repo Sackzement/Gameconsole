@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 #include <map>
-#include <SDL2_ttf/SDL_ttf.h>
-#include <SDL2_image/SDL_image.h>
+#include <SDL/SDL_ttf.h>
+#include <SDL/SDL_image.h>
 #include "Window.h"
 #include "GameObject.h"
 

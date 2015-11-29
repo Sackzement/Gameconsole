@@ -1,5 +1,5 @@
 #pragma once
-#include <SDL2/SDL_render.h>  // for SDL_Renderer and SDL_Window
+#include <SDL/SDL_render.h>  // for SDL_Renderer and SDL_Window
 #include "types.h"
 
 class Window  {

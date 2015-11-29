@@ -1,5 +1,5 @@
 #pragma once
-#include <SDL2/SDL_syswm.h>
+#include <SDL/SDL_syswm.h>
 
 
 class Window2
