@@ -21,8 +21,8 @@ flagsRenderer (m_flagsRenderer),
   m_flagsWindow (SDL_WINDOW_OPENGL),
 m_flagsRenderer (SDL_RENDERER_ACCELERATED),
 
-  m_sdlWindow (nullptr),
-m_sdlRenderer (nullptr),
+  m_sdlWindow (NULL),
+m_sdlRenderer (NULL),
 m_displayMode()
 
 {}

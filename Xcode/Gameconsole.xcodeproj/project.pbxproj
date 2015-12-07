@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A707DD9E1B55673800693172 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A707DD9B1B55673800693172 /* SDL2_image.framework */; };
-		A707DD9F1B55673800693172 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A707DD9C1B55673800693172 /* SDL2_ttf.framework */; };
-		A707DDA01B55673800693172 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A707DD9D1B55673800693172 /* SDL2.framework */; };
 		A75DBA371B671C6E00B05A80 /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75DBA341B671C6E00B05A80 /* Engine.cpp */; };
 		A75DBA381B671C6E00B05A80 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75DBA351B671C6E00B05A80 /* GameObject.cpp */; };
 		A75DBA391B671C6E00B05A80 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75DBA361B671C6E00B05A80 /* Window.cpp */; };
 		A76A0C7B1B6928650042C22F /* Level1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A76A0C791B6928650042C22F /* Level1.cpp */; };
-		A76A0C7F1B694F2C0042C22F /* PCinfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A76A0C7D1B694F2C0042C22F /* PCinfo.cpp */; };
+		A77B8DFA1C0721C500C126B7 /* HardwareInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A77B8DF91C0721C500C126B7 /* HardwareInfo.cpp */; };
 		A7A581AF1B56DA1F003E34C9 /* res in CopyFiles */ = {isa = PBXBuildFile; fileRef = A707DD981B5564A500693172 /* res */; };
 		A7D64B9E1B67154600A7F0B6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7D64B9D1B67154600A7F0B6 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -53,7 +50,7 @@
 		A75DBA351B671C6E00B05A80 /* GameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		A75DBA361B671C6E00B05A80 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Window.cpp; sourceTree = "<group>"; };
 		A76A0C791B6928650042C22F /* Level1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level1.cpp; sourceTree = "<group>"; };
-		A76A0C7D1B694F2C0042C22F /* PCinfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PCinfo.cpp; sourceTree = "<group>"; };
+		A77B8DF91C0721C500C126B7 /* HardwareInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HardwareInfo.cpp; sourceTree = "<group>"; };
 		A785E4D81B55FA230084D62E /* test.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = test.xcodeproj; sourceTree = "<group>"; };
 		A7D64B9D1B67154600A7F0B6 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,9 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A707DD9E1B55673800693172 /* SDL2_image.framework in Frameworks */,
-				A707DD9F1B55673800693172 /* SDL2_ttf.framework in Frameworks */,
-				A707DDA01B55673800693172 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,11 +90,11 @@
 		A75DBA331B671C6E00B05A80 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A77B8DF91C0721C500C126B7 /* HardwareInfo.cpp */,
 				A76A0C791B6928650042C22F /* Level1.cpp */,
 				A75DBA341B671C6E00B05A80 /* Engine.cpp */,
 				A75DBA351B671C6E00B05A80 /* GameObject.cpp */,
 				A75DBA361B671C6E00B05A80 /* Window.cpp */,
-				A76A0C7D1B694F2C0042C22F /* PCinfo.cpp */,
 			);
 			name = src;
 			path = ../src;
@@ -198,10 +192,10 @@
 			files = (
 				A7D64B9E1B67154600A7F0B6 /* main.cpp in Sources */,
 				A75DBA371B671C6E00B05A80 /* Engine.cpp in Sources */,
-				A76A0C7F1B694F2C0042C22F /* PCinfo.cpp in Sources */,
 				A75DBA381B671C6E00B05A80 /* GameObject.cpp in Sources */,
 				A75DBA391B671C6E00B05A80 /* Window.cpp in Sources */,
 				A76A0C7B1B6928650042C22F /* Level1.cpp in Sources */,
+				A77B8DFA1C0721C500C126B7 /* HardwareInfo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +206,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -229,7 +223,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				FRAMEWORK_SEARCH_PATHS = /Users/piit/Wolke/Development/libraries/lib_files/mac/universal/debug;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -244,9 +239,19 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				HEADER_SEARCH_PATHS = /Users/piit/Wolke/Development/libraries/includes;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SDL2,
+					"-framework",
+					SDL2_image,
+					"-framework",
+					SDL2_ttf,
+				);
 				SDKROOT = macosx;
 				SYMROOT = ../build/mac;
 			};
@@ -256,8 +261,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -273,7 +278,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				FRAMEWORK_SEARCH_PATHS = /Users/piit/Wolke/Development/libraries/lib_files/mac/universal/release;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -281,8 +287,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				HEADER_SEARCH_PATHS = /Users/piit/Wolke/Development/libraries/includes;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SDL2,
+					"-framework",
+					SDL2_image,
+					"-framework",
+					SDL2_ttf,
+				);
 				SDKROOT = macosx;
 				SYMROOT = ../build/mac;
 			};
