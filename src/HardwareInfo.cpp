@@ -1,5 +1,5 @@
 #include "../include/HardwareInfo.h"
-#include <SDL2/SDL_render.h>
+#include <SDL/SDL_render.h>
 
 
 
@@ -40,7 +40,7 @@ SDL_DisplayMode DisplayInfo::getLargesMode()
 
 
 
-#include <SDL2/SDL_cpuinfo.h>
+#include <SDL/SDL_cpuinfo.h>
 
 
 void HardwareInfo::update()

@@ -59,16 +59,15 @@ private:
 	class FLAGS
 	{
 	public:
-		Uint32 timer           = 0x00000001;
-		Uint32 audio           = 0x00000010;
-		Uint32 video           = 0x00000020;
-		Uint32 joystick        = 0x00000200;
-		Uint32 haptic          = 0x00001000;
-		Uint32 gamecontroller  = 0x00002000;
-		Uint32 events          = 0x00004000;
-		Uint32 noparachute     = 0x00100000;
-		Uint32 everything      = timer | audio | video | joystick | haptic
-			                     | gamecontroller | events | noparachute;
+		Uint32 sDL_INIT_TIMER           = SDL_INIT_TIMER;
+		Uint32 sDL_INIT_AUDIO           = SDL_INIT_AUDIO;
+		Uint32 sDL_INIT_VIDEO           = SDL_INIT_VIDEO;
+		Uint32 sDL_INIT_JOYSTICK        = SDL_INIT_JOYSTICK;
+		Uint32 sDL_INIT_HAPTIC          = SDL_INIT_HAPTIC;
+		Uint32 sDL_INIT_GAMECONTROLLER  = SDL_INIT_GAMECONTROLLER;
+		Uint32 sDL_INIT_EVENTS          = SDL_INIT_EVENTS;
+		Uint32 sDL_INIT_EVERYTHING      = SDL_INIT_EVERYTHING;
+		Uint32 sDL_INIT_NOPARACHUTE     = SDL_INIT_NOPARACHUTE;
 	};
 public:
 	FLAGS   flags;

@@ -1,0 +1,26 @@
+﻿Build started 26.11.2015 17:36:50.
+     1>Project "C:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /Od /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt ..\main.cpp ..\src\Engine.cpp ..\src\GameObject.cpp ..\src\HardwareInfo.cpp ..\src\Level1.cpp ..\src\Window.cpp ..\src\Window2.cpp
+         Window2.cpp
+         Window.cpp
+         Level1.cpp
+         HardwareInfo.cpp
+         GameObject.cpp
+         Engine.cpp
+         main.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Wolke\Development\Projects\Gameconsole\Vstudio\x64\Debug\Gameconsole.exe" /INCREMENTAL /NOLOGO SDL2main.lib SDL2.lib SDL2_image.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Wolke\Development\Projects\Gameconsole\Vstudio\x64\Debug\Gameconsole.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Wolke\Development\Projects\Gameconsole\Vstudio\x64\Debug\Gameconsole.lib" /MACHINE:X64 x64\Debug\main.obj
+         x64\Debug\Engine.obj
+         x64\Debug\GameObject.obj
+         x64\Debug\HardwareInfo.obj
+         x64\Debug\Level1.obj
+         x64\Debug\Window.obj
+         x64\Debug\Window2.obj
+         Gameconsole.vcxproj -> C:\Wolke\Development\Projects\Gameconsole\Vstudio\x64\Debug\Gameconsole.exe
+     1>Done Building Project "C:\Wolke\Development\Projects\Gameconsole\Vstudio\Gameconsole.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.44

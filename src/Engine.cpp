@@ -56,7 +56,7 @@ byte    Engine:: initLibs()       {
             printf( "Error:  Failed to init SDL_img  %s\n", SDL_GetError() );
             succNum |= 2 ;
         }
-        // INIT SDL_ttf
+		// INIT SDL_ttf
         if   ( TTF_Init() == -1 )  {
             
             printf( "Error:  Failed to init SDL_ttf  %s\n", SDL_GetError() );
@@ -78,7 +78,7 @@ void    Engine:: loadResources()  {
                 
                 if        ( fileEnding == "ttf" )  {
                     
-                    TTF_Font* font = TTF_OpenFont( (*it).c_str(), 28 );
+					TTF_Font* font = TTF_OpenFont((*it).c_str(), 28);
                     if( ! font )
                         printf( "Error:  Failed to load font \"%s\"  %s\n", (*it).c_str(), SDL_GetError() );
                     else

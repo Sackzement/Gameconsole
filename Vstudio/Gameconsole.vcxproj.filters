@@ -1,46 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{ac7dce43-c957-40c3-be67-65ed630e7229}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="res">
-      <UniqueIdentifier>{2590e4db-28fd-4eb1-9eae-00722367f50e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include">
-      <UniqueIdentifier>{61680ff1-98ab-4bd0-a550-8fd25c15ac99}</UniqueIdentifier>
+      <UniqueIdentifier>{6340a0be-332a-482b-93cd-962a8fd57f64}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\src\Engine.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\GameObject.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Level1.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Window.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\HardwareInfo.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Window2.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\res\ululu.png">
-      <Filter>res</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="..\res\lazy.ttf">
-      <Filter>res</Filter>
-    </Font>
+    <Filter Include="src">
+      <UniqueIdentifier>{c04ebc11-5680-4591-a5d8-fb99daac60c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Engine.h">
@@ -49,13 +15,10 @@
     <ClInclude Include="..\include\GameObject.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\HardwareInfo.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\Level1.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\types.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\Window.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Scene.h">
@@ -64,11 +27,35 @@
     <ClInclude Include="..\include\sdf.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\HardwareInfo.h">
+    <ClInclude Include="..\include\types.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Window.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Window2.h">
       <Filter>include</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Engine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameObject.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HardwareInfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Level1.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Window.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Window2.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main.cpp" />
   </ItemGroup>
 </Project>
